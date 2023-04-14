@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Movie } from '../home/movie';
+import { Movie } from '../interfaces/movie';
 import { Input } from '@angular/core';
 import { Output,EventEmitter } from '@angular/core';
 @Component({
