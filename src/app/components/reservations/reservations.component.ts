@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ReservationsComponent {
 
+  constructor(){
+    sessionStorage.setItem("page", "reservation");
+  }
 }

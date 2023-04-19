@@ -13,10 +13,16 @@ export class HomeComponent {
   @Output() reservation = new EventEmitter<Movie>();
   @Input() movies: Movie[];
 
+  
+  ngOnInit(){
+    console.log("Uaso ovde");
+    console.log("Movies: " + this.movies);
+  }
+
   bookTickets(m:Movie){
     console.log("U home je: " + JSON.stringify(m));
     this.reservation.emit(m);
   }
   
-  number:number[]=[1,2,3,4];
+
 }

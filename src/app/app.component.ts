@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Movie } from './interfaces/movie';
 import { Output,EventEmitter } from '@angular/core';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +11,10 @@ export class AppComponent {
   title = 'movies_angular';
   @Output() reservation = new EventEmitter<Movie>();
 
-  bookTickets(m:Movie){
-    console.log("Stigao dovde!" + JSON.stringify(m));
+  constructor(public authService: AuthService) { }
+ 
+  logout() {
+    this.authService.logOut();
   }
   movies: Movie[] = [
     {

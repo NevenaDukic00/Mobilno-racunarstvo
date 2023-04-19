@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,12 +24,21 @@ export class LoginComponent {
   onSubmit(){
    
     if(this.loginForm.valid){
-      this.authService.login(this.loginForm.value).subscribe((res)=>localStorage.setItem('token',res.access_token));
+      this.authService.login(this.loginForm.value).subscribe(
+        (res)=>{
+          this.authService.setSessionData(res);
+          if(this.authService.getUserStatus()=="admin"){
+            this.router.navigate(['/homeAdmin']);
+          }else if(this.authService.getUserStatus()=="user"){
+            this.router.navigate(['/home']);
+          }
+        });
     }
    
+
     console.log(this.loginForm.value);
   }
-  constructor(public fb:FormBuilder,private authService:AuthService){
+  constructor(public fb:FormBuilder,private authService:AuthService,private router: Router){
     this.loginForm = fb.group(
       {
       email:['',[Validators.email,Validators.required]],

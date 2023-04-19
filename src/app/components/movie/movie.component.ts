@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Movie } from '../interfaces/movie';
 import { Input } from '@angular/core';
 import { Output,EventEmitter } from '@angular/core';
+import { Movie } from 'src/app/interfaces/movie';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -14,6 +14,9 @@ export class MovieComponent {
   
   @Output() reservation = new EventEmitter<Movie>();
  
+  constructor(){
+    sessionStorage.setItem("page", "movie");
+  }
   bookTickets(){
     console.log("Saljemo: " + JSON.stringify(this.movie));
     this.reservation.emit(this.movie);

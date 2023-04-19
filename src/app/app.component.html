@@ -1,10 +1,18 @@
-<router-outlet>
+<div class="navbar" [ngSwitch]="authService.getUserStatus()">
+    <div *ngSwitchCase="null">
+            <a [routerLink]="['login']">Login</a>
+            <a [routerLink]="['register']">Register</a>
+    </div>
 
-<app-navbar></app-navbar>
-<app-home [movies]="movies"
-(reservation)="bookTickets($event)"></app-home>
-
-<!-- <app-login></app-login>     -->
-
-
-</router-outlet>
+    <div *ngSwitchCase="'admin'">
+        <a [routerLink]="['/home']">Home</a>
+        <a (click)="logout()"  [routerLink]="['login']">Logout</a>
+    </div>
+    <div *ngSwitchCase="'user'">
+        <a [routerLink]="['/home']">Home</a>
+        <a [routerLink]="['myTickets']">My tickets</a>
+        <a (click)="logout()"  [routerLink]="['login']">Logout</a>
+    </div>
+</div>
+<router-outlet></router-outlet>
+ 
