@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    background: linear-gradient(45deg, #b6dbd9, #c799e6);
     font-family: sans-serif;
     font-weight: 100;
     min-width: 100%;
@@ -26,8 +26,8 @@ body {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #414e86;
+    box-shadow: 0 0 20px rgba(208, 129, 129, 0.1);
+    background-color: #c7c7f8;
     position: fixed;
     top: 0;
     left: 0;

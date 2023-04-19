@@ -1,27 +1,29 @@
 <figure class="movie">
     <div class="movie__hero">
-      <!-- <img src="https://www.mensjournal.com/wp-content/uploads/2018/10/rambo-main-3.jpg?quality=86&strip=all" alt="Rambo" class="movie__img"> -->
+      <img
+              src={{movie.image}}
+              className="img-fluid w-100"
+              aria-hidden
+              alt="card-horizontal-image"
+            />
     </div>
     <div class="movie__content">
       <div class="movie__title">
         <h1 class="heading__primary">{{movie.title}} <i class="fas fa-fire"></i></h1>
-        <div class="movie__tag movie__tag--1">#action</div>
-        <div class="movie__tag movie__tag--2">#thriller</div>
+        <div class="movie__tag movie__tag--1">{{movie.genre.name}}</div>
       </div>
       <p class="movie__description">
         {{movie.description}}
       </p>
       <div class="movie__details">
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.duration}}</p>
-        <p class="movie__detail"><span class="icons icons-yellow"><i class="fas fa-file-invoice-dollar"></i>
-          </span>{{movie.rating}}</p>
-      </div>
-      <button
+        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.date}}</p>
+       </div>
+      <!-- <button
       [ngClass]="{ classButtonClick: buttonClick}"
-      (click)="bookTickets()"
-    >
-      Rezervisi karte
-    </button>
+      (click)="bookTickets()"> -->
+      <!-- Rezervisi karte
+    </button> -->
     </div>
     <div class="movie__price">{{movie.price}}</div>
     

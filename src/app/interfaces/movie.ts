@@ -1,6 +1,9 @@
+import { Genre } from "./genre";
+
 export interface Movie {
+    id:number;
     title:string;
-    genre:string;
+    genre:Genre;
     description:string;
     date:Date;
     duration:string;

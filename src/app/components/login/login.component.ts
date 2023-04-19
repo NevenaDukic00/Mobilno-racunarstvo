@@ -11,6 +11,14 @@ export class LoginComponent {
  
   loginForm: FormGroup;
 
+
+  constructor(public fb:FormBuilder,private authService:AuthService,private router: Router){
+    this.loginForm = fb.group(
+      {
+      email:['',[Validators.email,Validators.required]],
+      password:['',[Validators.required]],}
+      )
+  }
   get emailFormControl(){
     // console.log(this.loginForm.get('email')as FormControl);
     return this.loginForm.get('email')as FormControl;
@@ -38,12 +46,6 @@ export class LoginComponent {
 
     console.log(this.loginForm.value);
   }
-  constructor(public fb:FormBuilder,private authService:AuthService,private router: Router){
-    this.loginForm = fb.group(
-      {
-      email:['',[Validators.email,Validators.required]],
-      password:['',[Validators.required]],}
-      )
-  }
+
   
 }

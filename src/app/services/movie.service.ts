@@ -13,8 +13,8 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  login(user:User):Observable<any>{
-    return this.http.get(`${this.url}/movies` + user.id);
-    
+  public getMovies():Observable<any>{
+    return this.http.get(this.url + "movies");
   }
+  
 }
