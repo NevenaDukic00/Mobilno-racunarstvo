@@ -8,14 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  url:string = "http://localhost:8000/api/login";
+  url:string = "http://localhost:8000/api/";
+
   constructor(private http: HttpClient) { }
 
   login(user:User):Observable<any>{
-    return this.http.post(this.url,user);
+    return this.http.post(this.url + "login",user);
   }
 
-  //videti ovo i za registraciju
+
   logout(user:User):Observable<any>{
     return this.http.post(this.url,user);
   
@@ -45,4 +46,12 @@ export class AuthService {
   public logOut(){
     sessionStorage.clear();
   }
+
+  register(user:User):Observable<any>{
+    return this.http.post(this.url + "register",user);
+  }
+  getAuthToken(){
+    return sessionStorage.getItem("token");
+  }
+
 }

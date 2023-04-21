@@ -19,12 +19,11 @@
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.duration}}</p>
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.date}}</p>
        </div>
-      <!-- <button
-      [ngClass]="{ classButtonClick: buttonClick}"
-      (click)="bookTickets()"> -->
-      <!-- Rezervisi karte
-    </button> -->
-    </div>
+      <button *ngIf="isLoggedIn()!=null"
+      (click)="bookTickets()"> 
+      Rezervisi karte
+      </button>
+    </div> 
     <div class="movie__price">{{movie.price}}</div>
     
   </figure>

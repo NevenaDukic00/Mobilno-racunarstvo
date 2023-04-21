@@ -10,11 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 import { AuthService } from './services/auth.service';
-
+import { RegistrationComponent } from './components/registration/registration.component';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthService } from './services/auth.service';
     ReservationsComponent,
     LoginComponent,
     MyMoviesComponent,
+    RegistrationComponent,
     
   ],
   imports: [
@@ -37,7 +39,11 @@ import { AuthService } from './services/auth.service';
     RouterModule
     
   ],
-  providers: [AuthService],
+  providers: [AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
