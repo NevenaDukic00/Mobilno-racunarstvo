@@ -19,7 +19,7 @@
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.duration}}</p>
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.date}}</p>
        </div>
-      <button *ngIf="isLoggedIn()!=null"
+      <button *ngIf="isLoggedIn()!=null && isLoggedIn()!='admin'"
       (click)="bookTickets()"> 
       Rezervisi karte
       </button>

@@ -1,8 +1,8 @@
 export interface Ticket {
 
     id:number;
-    movies_id:number;
+    movie_id:number;
     user_id:number;
     seat_number:number;
-    amount:DoubleRange;
+    price:number;
 }

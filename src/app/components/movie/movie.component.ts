@@ -4,6 +4,7 @@ import { Output,EventEmitter } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Movie } from 'src/app/interfaces/movie';
 import { AuthService } from 'src/app/services/auth.service';
+import { TicketsService } from 'src/app/services/tickets.service';
 
 @Component({
   selector: 'app-movie',
@@ -15,10 +16,12 @@ export class MovieComponent {
 
 
   @Input() movie: Movie;
-  
-  constructor(private router:Router,private authSerivce:AuthService){}
+  @Output() bookTicket = new EventEmitter<Movie>();
+  constructor(private router:Router,private authSerivce:AuthService,private ticketService:TicketsService){}
 
   bookTickets(){
+    console.log("Current movie je: " + this.movie);
+    this.ticketService.setCurrentMovie(this.movie);
     this.router.navigate(['/reservation']);
   }
 

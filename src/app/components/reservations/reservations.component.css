@@ -36,6 +36,8 @@
   border-top-right-radius: 10px;
 }
 
+
+
 .selected {
   background-color: #0081cb;
 }
@@ -52,12 +54,12 @@
   margin-left: 18px;
 }
 
-.seat:not(.occupied):hover {
+.seat:not(.occupied):not(.selected):hover {
   cursor: pointer;
   transform: scale(1.2);
 }
 
-.showcase .seat:not(.occupied):hover {
+.showcase .seat:not(.occupied):not(.selected):hover {
   cursor: default;
   transform: scale(1);
 }

@@ -54,4 +54,7 @@ export class AuthService {
     return sessionStorage.getItem("token");
   }
 
+  getUser(){
+    return Number(sessionStorage.getItem("userId"));
+  }
 }
