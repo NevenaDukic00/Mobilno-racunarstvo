@@ -11,7 +11,7 @@
     </div>
     <div *ngSwitchCase="'user'">
         <a [routerLink]="['/home']">Home</a>
-        <a [routerLink]="['myTickets']">My tickets</a>
+        <a [routerLink]="['/myTickets']">My tickets</a>
         <a (click)="logout()"  [routerLink]="['login']">Logout</a>
     </div>
 </div>

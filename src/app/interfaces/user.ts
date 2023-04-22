@@ -1,5 +1,5 @@
 export interface User {
-    id:Int16Array;
+    id:number;
     email:string;
     password:string;
     firstName:string;

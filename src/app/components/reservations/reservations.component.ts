@@ -5,6 +5,8 @@ import { TicketsService } from 'src/app/services/tickets.service';
 import * as angular from "angular";
 import { element } from 'angular';
 import { AuthService } from 'src/app/services/auth.service';
+import {Pipe, PipeTransform} from '@angular/core';
+import { TicketNetwork } from 'src/app/interfaces/ticket-network';
 @Component({
   selector: 'app-reservations',
   templateUrl: './reservations.component.html',
@@ -13,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ReservationsComponent {
 
   tickets:Ticket[];
-  selected_tickets:Ticket[] = new Array();
+  selected_tickets:TicketNetwork[] = new Array();
   res:any[];
   el:any;
   number_of_seats:number=0;
@@ -116,7 +118,7 @@ export class ReservationsComponent {
       this.resetScreen(this.selected_tickets);
     }
   }
-  resetScreen(tickets:Ticket[]){
+  resetScreen(tickets:TicketNetwork[]){
     tickets.forEach(element => {
       document.getElementById(element.seat_number+"")?.classList.remove("selected");
       document.getElementById(element.seat_number+"")?.classList.add("occupied");

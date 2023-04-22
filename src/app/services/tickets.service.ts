@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Movie } from '../interfaces/movie';
 import { Ticket } from '../interfaces/ticket';
+import { TicketNetwork } from '../interfaces/ticket-network';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -24,8 +25,11 @@ export class TicketsService {
   getCurrentMovie(){
     return this.currentMovie;
   }
-  bookTickets(ticket:Ticket){
-      return this.http.post(this.url + "tickets",ticket);
+  bookTickets(ticket:TicketNetwork){
+    return this.http.post(this.url + "tickets",ticket);
      
+  }
+  getMyMovies():Observable<any>{
+    return this.http.get(this.url + "tickets/");
   }
 }

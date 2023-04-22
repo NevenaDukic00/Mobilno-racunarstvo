@@ -1,1 +1,22 @@
-<p>my-movies works!</p>
+<div class="data">
+    <table id="table">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Seat numbertor</th>
+                <th>Ambulance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let ticket of tickets">
+                <td>{{ticket.movie.title}}</td>
+                <td>{{ticket.movie.date}}</td>
+                <td>{{ticket.seat_number}}</td>
+                <td>{{ticket.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
