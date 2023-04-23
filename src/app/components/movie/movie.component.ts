@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output,EventEmitter } from '@angular/core';
@@ -16,6 +17,7 @@ import { TicketsService } from 'src/app/services/tickets.service';
 export class MovieComponent {
 
 
+  public pipe = new DatePipe('en-US');
   @Input() movie: Movie;
   @Output() removeMovie = new EventEmitter<Movie>();
   constructor(private router:Router,private authSerivce:AuthService,private ticketService:TicketsService,private movieService:MovieService){}

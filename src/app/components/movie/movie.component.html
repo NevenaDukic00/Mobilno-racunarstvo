@@ -17,7 +17,7 @@
       </p>
       <div class="movie__details">
         <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>Duration: {{movie.duration}}</p>
-        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>Date: {{movie.date}}</p>
+        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>Date: {{pipe.transform(movie.date, 'MMM d y, h:mm a')}}</p>
        </div>
       <button class="button" *ngIf="isLoggedIn()!=null && isLoggedIn()!='admin'"
       (click)="bookTickets()"> 

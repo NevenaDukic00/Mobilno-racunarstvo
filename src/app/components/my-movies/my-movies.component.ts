@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { MovieService } from 'src/app/services/movie.service';
@@ -13,7 +14,8 @@ export class MyMoviesComponent {
   myTickets:Ticket[]= new Array();
   allTickets:Ticket[];
   displayedColumns: string[] = ['title', 'seat_number', 'date', 'price'];
-
+  public pipe = new DatePipe('en-US');
+  
   constructor(private ticketService:TicketsService){}
 
   ngOnInit(): void {

@@ -13,7 +13,7 @@
         <tbody>
             <tr *ngFor="let ticket of myTickets">
                 <td>{{ticket.movie.title}}</td>
-                <td>{{ticket.movie.date}}</td>
+                <td>{{pipe.transform(ticket.movie.date, 'MMM d y, h:mm a')}}</td>
                 <td>{{ticket.seat_number}}</td>
                 <td>{{ticket.price}}</td>
             </tr>
