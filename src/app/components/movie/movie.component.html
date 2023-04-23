@@ -23,6 +23,10 @@
       (click)="bookTickets()"> 
       Rezervisi karte
       </button>
+      <button *ngIf="isLoggedIn()!=null && isLoggedIn()=='admin'"
+      (click)="deleteMovie()"> 
+      Obrisi film
+      </button>
     </div> 
     <div class="movie__price">{{movie.price}}</div>
     

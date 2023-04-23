@@ -2,6 +2,7 @@
     <app-movie
     *ngFor="let m of movies"   
     [movie]="m"
+    (removeMovie)="removeMovie(m)"
   ></app-movie>
 </div>
 

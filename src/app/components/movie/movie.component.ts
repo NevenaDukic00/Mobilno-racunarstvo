@@ -4,6 +4,7 @@ import { Output,EventEmitter } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Movie } from 'src/app/interfaces/movie';
 import { AuthService } from 'src/app/services/auth.service';
+import { MovieService } from 'src/app/services/movie.service';
 import { TicketsService } from 'src/app/services/tickets.service';
 
 @Component({
@@ -16,8 +17,8 @@ export class MovieComponent {
 
 
   @Input() movie: Movie;
-  @Output() bookTicket = new EventEmitter<Movie>();
-  constructor(private router:Router,private authSerivce:AuthService,private ticketService:TicketsService){}
+  @Output() removeMovie = new EventEmitter<Movie>();
+  constructor(private router:Router,private authSerivce:AuthService,private ticketService:TicketsService,private movieService:MovieService){}
 
   bookTickets(){
     console.log("Current movie je: " + this.movie);
@@ -29,5 +30,17 @@ export class MovieComponent {
     return this.authSerivce.getUserStatus();
   }
 
+  deleteMovie(){
+    this.movieService.delete(this.movie).subscribe((res)=>{
+      console.log(res);
+      if(res.response=="success"){
+        alert("Movie has been successfully deleted!");
+        this.removeMovie.emit(this.movie);
+      }else{
+        alert("Deliting movie failed!");
+      }
+    
+    });
+  }
 
 }

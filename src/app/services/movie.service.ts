@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { Movie } from '../interfaces/movie';
 import { User } from '../interfaces/user';
 
 
@@ -17,4 +18,7 @@ export class MovieService {
     return this.http.get(this.url + "movies");
   }
   
+  public delete(movie:Movie):Observable<any>{
+    return this.http.delete(this.url + "movies/" + movie.id);
+  }
 }

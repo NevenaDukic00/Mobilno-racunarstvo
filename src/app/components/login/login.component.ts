@@ -36,7 +36,7 @@ export class LoginComponent {
         (res)=>{
           this.authService.setSessionData(res);
           if(this.authService.getUserStatus()=="admin"){
-            this.router.navigate(['/homeAdmin']);
+            this.router.navigate(['/home']);
           }else if(this.authService.getUserStatus()=="user"){
             this.router.navigate(['/home']);
           }
