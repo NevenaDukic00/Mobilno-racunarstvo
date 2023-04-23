@@ -10,7 +10,8 @@ import { TicketsService } from 'src/app/services/tickets.service';
 })
 export class MyMoviesComponent {
 
-  tickets:Ticket[];
+  myTickets:Ticket[]= new Array();
+  allTickets:Ticket[];
   displayedColumns: string[] = ['title', 'seat_number', 'date', 'price'];
 
   constructor(private ticketService:TicketsService){}
@@ -21,7 +22,17 @@ export class MyMoviesComponent {
 
   
   public loadData(){
-    this.ticketService.getMyMovies().subscribe((res)=>{this.tickets = res.data;console.log(this.tickets)});
+    this.ticketService.getMyMovies().subscribe((res)=>{
+      this.allTickets = res.data;
+      console.log(res.data);
+      this.allTickets.forEach(element => {
+        if(element.movie!=null){
+          this.myTickets.push(element);
+        }
+      });
+
+
+    });
     
   }
  

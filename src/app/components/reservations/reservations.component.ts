@@ -53,7 +53,7 @@ export class ReservationsComponent {
       this.doubleClick(event);
     } else {
       this.justClicked = true;
-      setTimeout(() => {
+      setTimeout(() => {-
         console.log("USAO U SETTIMEOUT!");
         this.justClicked = false;
         if (this.doubleClicked === false) {
@@ -65,9 +65,9 @@ export class ReservationsComponent {
   }
   
   singleClick(event:Event) {
-   
+    console.log( document.getElementById((event.target as Element).id+"")?.classList);
     if ((event.target as Element).classList.contains('seat') &&
-     !(event.target as Element).classList.contains('occupied')) {
+     !(event.target as Element).classList.contains('occupied') && !(event.target as Element).classList.contains('selected')) {
       console.log("Jednom smo kliknuli");
       console.log( document.getElementById((event.target as Element).id+"")?.classList);
       document.getElementById((event.target as Element).id+"")?.classList.add("selected");

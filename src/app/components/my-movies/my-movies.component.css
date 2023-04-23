@@ -10,16 +10,19 @@ table {
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: linear-gradient(45deg, #b6dbd9, #c799e6);;
 }
 
 thead th {
-    background-color: #55608f;
+    background-color: #ad90c1;
 }
 
 th,
 td {
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(141, 91, 134, 0.2);
+    border-radius: 1.5em;
+    border: px solid rgb(164, 57, 125);
     color: #fff;
 }
 

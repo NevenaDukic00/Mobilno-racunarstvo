@@ -11,8 +11,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegistrationComponent {
 
   registrationForm: FormGroup;
-  message:boolean = false;
-  messageText:string = "";
+  messagesuccess:boolean = false;
+  messagedanger:boolean = false;
+  messageTextsuccess:string = "";
+  messageTextdanger:string = "";
 
   constructor(public fb:FormBuilder,private authService:AuthService,private router: Router){
     this.registrationForm = fb.group(
@@ -48,16 +50,18 @@ export class RegistrationComponent {
         (res)=>{
           console.log(res);
           if(res.response=="success"){
-            alert("Uspesno");
-            this.messageText = "You have been successfully registered!";
+            this.messageTextsuccess = "You have been successfully registered!";
             this.registrationForm.reset();
+            this.messagesuccess = true;
            // this.clearForm();
+          }else if(res.email==null){
+            this.messageTextdanger = "The password must have at least 5 characters!";
+            this.messagedanger = true;
           }else{
-            this.messageText = "The password must have at least 5 characters!";
-            
+            this.messageTextdanger = "The email has already been taken!";
+            this.messagedanger = true;
           }
-          this.message = true;
-
+         
         });
     }
    
@@ -74,7 +78,8 @@ export class RegistrationComponent {
          });
     }
   public removeMessage(){
-    this.message = false;
+    this.messagedanger = false;
+    this.messagesuccess = false;
     console.log("Poruka nestaje!");
   }
 }

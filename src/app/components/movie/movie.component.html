@@ -2,7 +2,7 @@
     <div class="movie__hero">
       <img
               src={{movie.image}}
-              className="img-fluid w-100"
+              class="image"
               aria-hidden
               alt="card-horizontal-image"
             />
@@ -16,14 +16,14 @@
         {{movie.description}}
       </p>
       <div class="movie__details">
-        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.duration}}</p>
-        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>{{movie.date}}</p>
+        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>Duration: {{movie.duration}}</p>
+        <p class="movie__detail"><span class="icons icons-grey"><i class="fas fa-clock"></i> </span>Date: {{movie.date}}</p>
        </div>
-      <button *ngIf="isLoggedIn()!=null && isLoggedIn()!='admin'"
+      <button class="button" *ngIf="isLoggedIn()!=null && isLoggedIn()!='admin'"
       (click)="bookTickets()"> 
       Rezervisi karte
       </button>
-      <button *ngIf="isLoggedIn()!=null && isLoggedIn()=='admin'"
+      <button class="button" *ngIf="isLoggedIn()!=null && isLoggedIn()=='admin'"
       (click)="deleteMovie()"> 
       Obrisi film
       </button>

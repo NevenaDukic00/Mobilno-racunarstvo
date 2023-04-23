@@ -5,13 +5,13 @@
             <tr>
                 <th>Title</th>
                 <th>Date</th>
-                <th>Seat numbertor</th>
+                <th>Seat number</th>
                 <th>Price</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr *ngFor="let ticket of tickets">
+            <tr *ngFor="let ticket of myTickets">
                 <td>{{ticket.movie.title}}</td>
                 <td>{{ticket.movie.date}}</td>
                 <td>{{ticket.seat_number}}</td>

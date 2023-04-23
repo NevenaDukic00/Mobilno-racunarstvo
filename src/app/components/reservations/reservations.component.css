@@ -114,3 +114,16 @@ p.text span {
   color: #fff;
 }
 
+.button{
+  font-size: 10px;
+  align-self: center;
+  color: #fff;
+padding: 2px 7px;
+border-color: #4d2c51;
+border-radius: 100px;
+margin-right: 8px;
+display: block;
+text-transform: uppercase;
+background-color: #a480a8;
+width: 100px;
+}

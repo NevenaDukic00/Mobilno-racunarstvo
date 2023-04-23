@@ -1,4 +1,8 @@
 <form class="example-form" [formGroup] = "loginForm" (ngSubmit) = "onSubmit()">
+  <div *ngIf="messagedanger" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{messageTextdanger}}</strong>
+    <button (click)="removeMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
       <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">

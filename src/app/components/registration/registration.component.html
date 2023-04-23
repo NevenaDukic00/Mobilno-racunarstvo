@@ -1,6 +1,10 @@
 <form class="example-form" [formGroup] = "registrationForm" (ngSubmit) = "onSubmit()">
-  <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{messageText}}</strong>
+  <div *ngIf="messagesuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{messageTextsuccess}}</strong>
+    <button (click)="removeMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div *ngIf="messagedanger" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{messageTextdanger}}</strong>
     <button (click)="removeMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
     <mat-form-field class="example-full-width">

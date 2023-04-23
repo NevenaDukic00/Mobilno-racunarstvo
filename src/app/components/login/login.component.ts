@@ -11,6 +11,8 @@ export class LoginComponent {
  
   loginForm: FormGroup;
 
+  messagedanger:boolean = false;
+  messageTextdanger:string = "";
 
   constructor(public fb:FormBuilder,private authService:AuthService,private router: Router){
     this.loginForm = fb.group(
@@ -39,12 +41,19 @@ export class LoginComponent {
             this.router.navigate(['/home']);
           }else if(this.authService.getUserStatus()=="user"){
             this.router.navigate(['/home']);
+          }else{
+            this.messageTextdanger = "Email or password is incorrect!";
+            this.messagedanger = true;
           }
         });
     }
    
 
     console.log(this.loginForm.value);
+  }
+  public removeMessage(){
+    this.messagedanger = false;
+    console.log("Poruka nestaje!");
   }
 
   
